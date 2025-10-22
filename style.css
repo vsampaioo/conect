@@ -39,7 +39,7 @@ body.bg-paciente {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: scroll;
 }
 * {
     box-sizing: border-box;
@@ -424,4 +424,13 @@ select:focus,
     input[type="text"], input[type="password"], input[type="email"], input[type="number"], select, input[list], #r-medic-search {
         max-width: 100%;
     }
+}
+
+@supports (-webkit-touch-callout: none) {
+  body.bg-login,
+  body.bg-agente,
+  body.bg-medico,
+  body.bg-paciente {
+    background-attachment: scroll !important;
+  }
 }
