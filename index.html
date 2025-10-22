@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Connect - Saúde</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preload" href="assets/telalogin.jpg" as="image">
+    <link rel="preload" href="assets/telamedico2.jpg" as="image">
+    <link rel="preload" href="assets/telapaciente.jpg" as="image">
+    <link rel="icon" href="assets/favicon.png" type="image/png">
+</head>
+<body>
+<main class="app">
+    <section id="screen-login" class="screen active">
+        <header class="brand">
+            <img src="assets/logo.png" alt="Logo Connect" class="logo">
+            <div>
+                <h1>SAÚDE CONECTADA</h1>
+                <p class="subtitle">Onde a tecnologia encontra o cuidado</p>
+            </div>
+        </header>
+        <nav class="login-block">
+            <button data-target="screen-login-agente">Agente de Saúde</button>
+            <button data-target="screen-login-medico">Médico</button>
+            <button data-target="screen-login-paciente">Paciente</button>
+            <button data-target="screen-registrar" id="btn-register-home">Registrar-se</button>
+        </nav>
+    </section>
+    <section id="screen-login-medico" class="screen">
+        <button class="back" data-action="go-back-login">← Voltar</button>
+        <h2>Login - Médico</h2>
+        <form id="form-login-medico" class="form panel">
+            <input id="medico-crm" type="text" inputmode="numeric" placeholder="CRM (apenas números)" required>
+            <input id="medico-senha" type="password" placeholder="Senha" required>
+            <button type="submit" class="primary">Entrar</button>
+        </form>
+    </section>
+    <section id="screen-login-agente" class="screen">
+        <button class="back" data-action="go-back-login">← Voltar</button>
+        <h2>Login - Agente de Saúde</h2>
+        <form id="form-login-agente" class="form panel">
+            <input id="agente-id" type="text" inputmode="numeric" placeholder="ID do Agente (apenas números)" required>
+            <input id="agente-senha" type="password" placeholder="Senha" required>
+            <button type="submit" class="primary">Entrar</button>
+        </form>
+    </section>
+    <section id="screen-login-paciente" class="screen">
+        <button class="back" data-action="go-back-login">← Voltar</button>
+        <h2>Login - Paciente</h2>
+        <form id="form-login-paciente" class="form panel">
+            <input id="paciente-cpf" type="text" inputmode="numeric" placeholder="CPF (apenas números)" required maxlength="14">
+            <input id="paciente-senha" type="password" placeholder="Senha" required>
+            <button type="submit" class="primary">Entrar</button>
+        </form>
+    </section>
+    <section id="screen-registrar" class="screen">
+        <button class="back" data-action="go-back-login">← Voltar</button>
+        <h2>Registrar</h2>
+        <nav class="login-block">
+            <button data-target="screen-reg-agente">Agente de Saúde</button>
+            <button data-target="screen-reg-medico">Médico</button>
+            <button data-target="screen-reg-paciente">Paciente</button>
+        </nav>
+    </section>
+    <section id="screen-reg-agente" class="screen">
+        <button class="back" data-action="go-back-registrar">← Voltar</button>
+        <h3>Registro - Agente de Saúde</h3>
+        <form id="form-reg-agente" class="form panel">
+            <input name="id" type="text" inputmode="numeric" placeholder="ID do Agente (apenas números)" required>
+            <input name="cpf" type="text" inputmode="numeric" placeholder="CPF (apenas números)" required maxlength="14">
+            <input name="nome" type="text" placeholder="Nome completo" required pattern="[A-Za-zÀ-ú\s]+">
+            <input name="email" type="email" placeholder="E-mail" required>
+            <input name="endereco" type="text" placeholder="Endereço" required>
+            <input name="senha" type="password" placeholder="Senha" required>
+            <button type="submit" class="primary">Registrar</button>
+        </form>
+    </section>
+    <section id="screen-reg-medico" class="screen">
+        <button class="back" data-action="go-back-registrar">← Voltar</button>
+        <h3>Registro - Médico</h3>
+        <form id="form-reg-medico" class="form panel">
+            <input name="crm" type="text" inputmode="numeric" placeholder="CRM (apenas números)" required>
+            <input name="nome" type="text" placeholder="Nome completo" required pattern="[A-Za-zÀ-ú\s]+">
+            <input name="email" type="email" placeholder="E-mail" required>
+            <input name="endereco" type="text" placeholder="Endereço" required>
+            <input name="senha" type="password" placeholder="Senha" required>
+            <button type="submit" class="primary">Registrar</button>
+        </form>
+    </section>
+    <section id="screen-reg-paciente" class="screen">
+        <button class="back" data-action="go-back-registrar">← Voltar</button>
+        <h3>Registro - Paciente</h3>
+        <form id="form-reg-paciente" class="form panel">
+            <input name="cpf" type="text" inputmode="numeric" placeholder="CPF (apenas números)" required maxlength="14">
+            <input name="nome" type="text" placeholder="Nome completo" required pattern="[A-Za-zÀ-ú\s]+">
+            <input name="email" type="email" placeholder="E-mail" required>
+            <input name="endereco" type="text" placeholder="Endereço" required>
+            <input name="senha" type="password" placeholder="Senha" required>
+            <button type="submit" class="primary">Registrar</button>
+        </form>
+    </section>
+    <section id="screen-agente-menu" class="screen">
+        <button class="back" data-action="go-back-login">← Sair</button>
+        <h2>Agente de Saúde</h2>
+        <div class="panel">
+            <button data-target="screen-agente-form" class="primary">Registrar Novo Paciente</button>
+            <button data-action="view-pastas" class="primary">Pacientes Registrados</button>
+        </div>
+    </section>
+    <section id="screen-agente-form" class="screen">
+        <button class="back" data-target="screen-agente-menu">← Voltar ao Menu</button>
+        <h2>Formulário do Paciente</h2>
+        <div class="panel">
+            <form id="form-paciente-novo" class="form" novalidate>
+                <input id="r-nome" type="text" placeholder="Nome completo" required pattern="[A-Za-zÀ-ú\s]+">
+                <input id="r-idade" type="number" inputmode="numeric" placeholder="Idade" required max="999">
+                <input id="r-peso" type="number" inputmode="decimal" placeholder="Peso (kg)">
+                <input id="r-cpf" type="text" inputmode="numeric" placeholder="CPF (apenas números)" maxlength="14">
+                <input id="r-pessoas" type="number" inputmode="numeric" placeholder="Qtd. pessoas na casa" max="99">
+                <select id="r-cidade" required>
+                    <option value="">Selecione a cidade</option>
+                    <option value="Aracaju">Aracaju</option>
+                    <option value="Itabaiana">Itabaiana</option>
+                    <option value="Lagarto">Lagarto</option>
+                    <option value="Nossa Senhora do Socorro">Nossa Senhora do Socorro</option>
+                    <option value="Estância">Estância</option>
+                    <option value="Propriá">Propriá</option>
+                    <option value="São Cristovão">São Cristovão</option>
+                    <option value="Tobias Barreto">Tobias Barreto</option>
+                    <option value="Itaporanga D'Ajuda">Itaporanga D'Ajuda</option>
+                </select>
+                <select id="r-bairro" required>
+                    <option value="">Selecione o bairro</option>
+                </select>
+                <input id="r-endereco" type="text" placeholder="Endereço">
+                <div class="checkbox-group">
+                    <label class="checkbox-row" for="r-comorbidade">
+                        <input id="r-comorbidade" type="checkbox"> Possui algum tipo de comorbidade?
+                    </label>
+                    <div id="comorbidade-box" class="hidden panel conditional-box">
+                        <input id="r-comorbidade-tipo" type="text" placeholder="Qual?">
+                    </div>
+                </div>
+                <div class="checkbox-row-inline">
+                    <label class="checkbox-row" for="r-avc">
+                        <input id="r-avc" type="checkbox"> AVC
+                    </label>
+                    <label class="checkbox-row" for="r-infarto">
+                        <input id="r-infarto" type="checkbox"> Infarto
+                    </label>
+                </div>
+                <div class="checkbox-group">
+                    <label class="checkbox-row" for="r-bebe">
+                        <input id="r-bebe" type="checkbox"> Paciente bebe?
+                    </label>
+                    <div id="bebe-box" class="hidden panel conditional-box">
+                        <input id="r-bebe-tipo" type="text" placeholder="Fermentada ou Destilada?">
+                    </div>
+                </div>
+                <div class="checkbox-group">
+                    <label class="checkbox-row" for="r-fuma">
+                        <input id="r-fuma" type="checkbox"> Paciente fuma?
+                    </label>
+                    <div id="fuma-box" class="hidden panel conditional-box">
+                        <input id="r-cigarros-dia" type="number" inputmode="numeric" placeholder="Quantos cigarros por dia?">
+                        <input id="r-anos-fuma" type="number" inputmode="numeric" placeholder="Quantos anos faz que fuma?">
+                    </div>
+                </div>
+                <div class="checkbox-group">
+                    <label class="checkbox-row" for="r-usa-medic">
+                        <input id="r-usa-medic" type="checkbox"> Usa medicamento?
+                    </label>
+                    <div id="med-box" class="hidden panel conditional-box">
+                        <input id="r-medic-search" placeholder="Pesquisar medicamento..." autocomplete="off">
+                    </div>
+                </div>
+                <div class="checkbox-group">
+                    <label class="checkbox-row" for="r-alergia">
+                        <input id="r-alergia" type="checkbox"> Possui alergia?
+                    </label>
+                    <div id="alergia-box" class="hidden panel conditional-box">
+                        <input id="r-alergia-tipo" type="text" placeholder="Qual tipo de Alergia?">
+                    </div>
+                </div>
+                <div class="checkbox-group">
+                    <label class="checkbox-row" for="r-atividade">
+                        <input id="r-atividade" type="checkbox"> Pratica atividade física?
+                    </label>
+                    <div id="atividade-box" class="hidden panel conditional-box">
+                        <input id="r-atividade-tipo" type="text" placeholder="Qual exercício?">
+                        <select id="r-atividade-frequencia">
+                            <option value="">Selecione a frequência</option>
+                            <option value="1 vez na semana">1 vez na semana</option>
+                            <option value="1 a 3 vezes na semana">1 a 3 vezes na semana</option>
+                            <option value="Mais de 3 vezes na semana">Mais de 3 vezes na semana</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="primary">Salvar Paciente</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    <section id="screen-agente-lista" class="screen">
+        <button class="back" data-target="screen-agente-menu">← Voltar ao Menu</button>
+        <h2>Pacientes Registrados</h2>
+        <div id="lista-container" class="panel">
+        </div>
+    </section>
+    <section id="screen-medico" class="screen">
+        <button class="back" data-action="go-back-login">← Sair</button>
+        <h2>Dashboard - Médico</h2>
+        <input type="text" id="search-medico" placeholder="Buscar paciente por nome ou CPF..." class="search-input">
+        <div id="medico-pacientes-list" class="panel"></div>
+    </section>
+    <section id="screen-paciente" class="screen">
+        <button class="back" data-action="go-back-login">← Sair</button>
+        <h2>Área do Paciente</h2>
+        <div class="panel">
+            <h3 style="text-align:center">Lembre-se de tomar seu remédio.</h3>
+        </div>
+    </section>
+</main>
+<div id="notification-container"></div>
+<script src="script.js"></script>
+</body>
+</html>
