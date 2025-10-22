@@ -4,10 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
             pacientes: [],
             users: {
                 medico: {
-                    '2210': {
-                        crm: '2210',
+                    '0102': {
+                        crm: '0102',
                         nome: 'Dr. Teste',
-                        senha: '2210@'
+                        senha: '123'
                     }
                 },
                 agente: {
@@ -18,10 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 },
                 paciente: {
-                    '08442695575': {
-                        cpf: '08442695575',
+                    '12345678900': {
+                        cpf: '12345678900',
                         nome: 'Paciente Teste',
-                        senha: '2210'
+                        senha: '123'
                     }
                 }
             },

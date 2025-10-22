@@ -15,7 +15,7 @@ body.bg-login {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: scroll;
 }
 body.bg-agente {
     background-color: #d4eaf7;
@@ -23,7 +23,7 @@ body.bg-agente {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: scroll;
 }
 body.bg-medico {
     background-color: #e1f5fe;
@@ -31,7 +31,7 @@ body.bg-medico {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: scroll;
 }
 body.bg-paciente {
     background-color: #e8f5e9;
@@ -411,8 +411,8 @@ select:focus,
     }
 
     .brand .logo {
-        width: 60%;
-        max-width: 280px;
+        width: 80%;
+        max-width: 320px;
     }
 
     h1, h2, h3 {
