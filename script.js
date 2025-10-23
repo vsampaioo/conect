@@ -443,7 +443,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     fumaContent += `<div class="conditional-box">${createInput('cargaTabagica', `${(p.cargaTabagica || 0).toFixed(2)} maços-ano`, 'Carga Tabágica', 'text')}</div>`;
                 }
             }
-            card.innerHTML = `<div class="paciente-header"><span>${p.nome}</span><span class="paciente-toggle">▶</span></div><div class="paciente-content"><form class="form form-edit-paciente" data-id="${p.id}" novalidate><h4>Detalhes do Paciente</h4>
+            card.innerHTML = `<div class="paciente-header"><span>${p.nome}</span><span class="paciente-toggle">▶&#xFE0E;</span></div><div class="paciente-content"><form class="form form-edit-paciente" data-id="${p.id}" novalidate><h4>Detalhes do Paciente</h4>
                 ${createInput('nome', p.nome, 'Nome', 'text')}
                 ${createInput('idade', p.idade, 'Idade', 'number')}
                 ${createInput('cpf', p.cpf ? this.formatCPF(p.cpf) : '', 'CPF', 'text')}
