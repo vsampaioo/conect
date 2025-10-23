@@ -11,28 +11,28 @@
 }
 body.bg-login {
     background-color: #c8f1e6;
-    background-image: url('assets/unnamed.jpg');
+    background-image: url('assets/telainicial.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
 }
 body.bg-agente {
     background-color: #d4eaf7;
-    background-image: url('assets/telamedico2.jpg');
+    background-image: url('assets/telasbackground.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
 }
 body.bg-medico {
     background-color: #e1f5fe;
-    background-image: url('assets/telamedico2.jpg');
+    background-image: url('assets/telasbackground.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
 }
 body.bg-paciente {
     background-color: #e8f5e9;
-    background-image: url('assets/telamedico2.jpg');
+    background-image: url('assets/telasbackground.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -492,8 +492,19 @@ input[type="datetime-local"]:focus {
         max-width: 320px;
     }
 
-    h1, h2, h3 {
+    h1 {
         padding: 0 8px;
+        font-size: 30px;
+    }
+
+    h2 {
+        padding: 0 8px;
+        font-size: 20px;
+    }
+
+    h3 {
+        padding: 0 8px;
+        font-size: 18px;
     }
     .login-block button, .primary {
         width: 100%;
