@@ -221,6 +221,16 @@
         <button class="back" data-action="go-back-login">← Sair</button>
         <h2>Área do Paciente</h2>
         
+        <div class="panel login-block">
+            <button data-target="screen-paciente-lembretes" class="primary">Lembretes de Medicação</button>
+            <button data-target="screen-paciente-videos" class="primary">Atividade Física</button>
+        </div>
+    </section>
+
+    <section id="screen-paciente-lembretes" class="screen">
+        <button class="back" data-target="screen-paciente">← Voltar ao Menu</button>
+        <h2>Área do Paciente - Lembretes</h2>
+        
         <div class="panel">
             <h3>Novo Lembrete de Medicamento</h3>
             <form id="form-novo-alarme" class="form">
@@ -239,6 +249,29 @@
             </div>
         </div>
     </section>
+
+    <section id="screen-paciente-videos" class="screen">
+        <button class="back" data-target="screen-paciente">← Voltar ao Menu</button>
+        <h2>Atividade Física</h2>
+        
+        <div class="panel">
+            <h3>Vídeos do YouTube</h3>
+            <p>Aqui você pode adicionar vídeos de exercícios leves, alongamentos, etc.</p>
+            
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/gC_L9qAHVJ8" 
+                        title="YouTube video player" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+            </div>
+
+            <h3>Seus Próprios Vídeos</h3>
+            <p>Se você gravar um vídeo e colocar na pasta 'assets' (ex: 'assets/meu_video.mp4')</p>
+            
+            </div>
+    </section>
+    
     </main>
 <div id="notification-container"></div>
 <audio id="alarm-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>

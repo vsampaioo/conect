@@ -72,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         showScreen(screenId) {
     
+            // ======== ÚNICA ALTERAÇÃO NESTE ARQUIVO ========
             const backgroundMap = {
                 'screen-login': 'bg-login',
                 'screen-login-agente': 'bg-agente',
@@ -85,8 +86,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 'screen-agente-form': 'bg-agente',
                 'screen-agente-lista': 'bg-agente',
                 'screen-medico': 'bg-medico',
-                'screen-paciente': 'bg-paciente'
+                'screen-paciente': 'bg-paciente', // Nova tela de Menu
+                'screen-paciente-lembretes': 'bg-paciente', // Tela de lembretes
+                'screen-paciente-videos': 'bg-paciente' // Nova tela de vídeos
             };
+            // ======== FIM DA ALTERAÇÃO ========
+
             document.body.className = '';
             const newClass = backgroundMap[screenId] || 'bg-login';
             document.body.classList.add(newClass);
@@ -207,8 +212,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     this.showScreen('screen-medico');
                 }
                 if (role === 'paciente') {
-                    this.renderAlarmes();
-                    this.showScreen('screen-paciente');
+                    this.renderAlarmes(); // Continua renderizando os alarmes
+                    this.showScreen('screen-paciente'); // Mostra o NOVO MENU
                 }
             } else {
                 this.showNotification('Credenciais inválidas.', 'error');
@@ -702,7 +707,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     this.saveState();
                     
                     
-                    if(document.getElementById('screen-paciente').classList.contains('active')) {
+                    if(document.getElementById('screen-paciente-lembretes').classList.contains('active')) {
                         this.renderAlarmes();
                     }
                 }
