@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Connect - Saúde</title>
-    <link rel="stylesheet" href="style.css?v=1.0">
+    <link rel="stylesheet" href="style.css?v=1.1">
     <link rel="preload" href="assets/telalogin.jpg" as="image">
     <link rel="preload" href="assets/telamedico2.jpg" as="image">
     <link rel="preload" href="assets/telapaciente.jpg" as="image">
@@ -215,15 +215,32 @@
         <input type="text" id="search-medico" placeholder="Buscar paciente por nome ou CPF..." class="search-input">
         <div id="medico-pacientes-list" class="panel"></div>
     </section>
+
     <section id="screen-paciente" class="screen">
         <button class="back" data-action="go-back-login">← Sair</button>
         <h2>Área do Paciente</h2>
+        
         <div class="panel">
-            <h3 style="text-align:center">Lembre-se de tomar seu remédio.</h3>
+            <h3>Novo Lembrete de Medicamento</h3>
+            <form id="form-novo-alarme" class="form">
+                <div id="paciente-med-box" style="position: relative; width: 100%; max-width: 420px;">
+                    <input id="paciente-medic-search" type="text" placeholder="Nome do medicamento" required autocomplete="off">
+                </div>
+                <input id="paciente-alarme-time" type="datetime-local" placeholder="Data e Hora" required>
+                <button type="submit" class="primary">Adicionar Lembrete</button>
+            </form>
+        </div>
+
+        <div class="panel">
+            <h3>Seus Lembretes</h3>
+            <div id="lista-alarmes-paciente">
+                <p>Nenhum lembrete ativo.</p>
+            </div>
         </div>
     </section>
-</main>
+    </main>
 <div id="notification-container"></div>
+<audio id="alarm-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
 <script src="script.js"></script>
 </body>
 </html>

@@ -96,6 +96,7 @@ h1, h2, h3 {
     padding: 16px;
     border-radius: 12px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    margin-bottom: 16px; 
 }
 .hidden {
     display: none !important;
@@ -159,19 +160,28 @@ button.primary {
     gap: 12px;
     align-items: center;
 }
-input[type="text"], input[type="password"], input[type="email"], input[type="number"], select, input[list], #r-medic-search {
+input[type="text"], input[type="password"], input[type="email"], input[type="number"], select, input[list], #r-medic-search,
+input[type="datetime-local"] {
     width: 100%;
     max-width: 420px;
     padding: 12px;
     border-radius: 10px;
     border: 1px solid #cccccc;
-    text-align: center;
+    text-align: center; 
     font-size: 15px;
     background: #fbfbfb;
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
 }
+input[type="datetime-local"] {
+    text-align: left;
+    color: var(--muted);
+}
+input[type="datetime-local"]:focus {
+    color: #333;
+}
+
 .search-input {
     width: 100%;
     padding: 12px;
@@ -216,7 +226,8 @@ input[type="email"]:focus,
 input[type="number"]:focus,
 select:focus,
 #r-medic-search:focus,
-.search-input:focus {
+.search-input:focus,
+input[type="datetime-local"]:focus {
     border-color: var(--accent);
     outline: none;
     box-shadow: 0 0 0 2px rgba(0, 191, 166, 0.2);
@@ -287,9 +298,15 @@ select:focus,
     color: #888;
     border-color: #e0e0e0;
 }
-.paciente-content input:not([type="checkbox"]), .paciente-content select {
-    text-align: left;
+
+.form-edit-paciente input[type="text"],
+.form-edit-paciente input[type="number"],
+.form-edit-paciente input[type="email"],
+.form-edit-paciente select {
+    text-align: left !important;
 }
+
+
 #med-box {
     position: relative;
 }
@@ -324,10 +341,10 @@ select:focus,
     display: flex;
     flex-direction: column;
     gap: 8px;
+    width: 106%;
+    
 }
-.conditional-box input, .conditional-box select {
-    text-align: left;
-}
+
 #screen-agente-menu .panel {
     display: flex;
     flex-direction: column;
@@ -389,6 +406,70 @@ select:focus,
     }
 }
 
+#paciente-med-box .suggestions-box {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+#paciente-med-box .suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+}
+
+#paciente-med-box .suggestion-item:hover {
+    background: #f0f0f0;
+}
+
+#lista-alarmes-paciente {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 300px; 
+    overflow-y: auto;
+}
+
+.alarme-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.alarme-item div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.alarme-item strong {
+    color: var(--accent-dark);
+    font-size: 1.1em;
+}
+
+.alarme-item span {
+    color: var(--muted);
+    font-size: 0.9em;
+}
+
+.alarme-delete-btn {
+    padding: 8px 12px;
+    font-size: 0.9em;
+    width: auto; 
+    max-width: 100px;
+}
+
 
 @media (max-width: 600px) {
     
@@ -417,7 +498,8 @@ select:focus,
     .login-block button, .primary {
         width: 100%;
     }
-    input[type="text"], input[type="password"], input[type="email"], input[type="number"], select, input[list], #r-medic-search {
+    input[type="text"], input[type="password"], input[type="email"], input[type="number"], select, input[list], #r-medic-search,
+    input[type="datetime-local"] {
         max-width: 100%;
     }
 }
