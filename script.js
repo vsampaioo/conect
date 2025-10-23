@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
             alarmes: [],
             users: {
                 medico: {
-                    '0102': {
-                        crm: '0102',
+                    '123': {
+                        crm: '123',
                         nome: 'Dr. Teste',
                         senha: '123'
                     }
@@ -19,8 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 },
                 paciente: {
-                    '12345678900': {
-                        cpf: '12345678900',
+                    '123': {
+                        cpf: '123',
                         nome: 'Paciente Teste',
                         senha: '123'
                     }
