@@ -489,15 +489,15 @@ input[type="datetime-local"]:focus {
     }
 
     .brand .logo {
-        width: 80%;
-        max-width: 320px;
+        width: 90%;
+        max-width: 340px;
         margin-top: 60px;
         margin-bottom: -60px;
     }
 
     h1 {
         padding: 0 8px;
-        font-size: 30px;
+        font-size: 35px;
     }
 
     h2 {
