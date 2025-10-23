@@ -11,32 +11,17 @@
 }
 body.bg-login {
     background-color: #c8f1e6;
-    background-image: url('assets/telainicial.jpg');
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
 }
 body.bg-agente {
     background-color: #d4eaf7;
-    background-image: url('assets/telasbackground.jpg');
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
 }
 body.bg-medico {
     background-color: #e1f5fe;
-    background-image: url('assets/telasbackground.jpg');
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
 }
 body.bg-paciente {
     background-color: #e8f5e9;
-    background-image: url('assets/telasbackground.jpg');
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
 }
+
 * {
     box-sizing: border-box;
 }
@@ -518,17 +503,16 @@ input[type="datetime-local"]:focus {
     }
 }
 
-/* ======== ADIÇÃO PARA OS VÍDEOS RESPONSIVOS ======== */
 
 .video-container {
     position: relative;
-    padding-bottom: 56.25%; /* Proporção 16:9 (para vídeos widescreen) */
+    padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
     width: 100%;
     max-width: 100%;
-    margin: 16px 0; /* Espaçamento */
-    border-radius: 8px; /* Borda arredondada como seus painéis */
+    margin: 16px 0;
+    border-radius: 8px;
 }
 
 .video-container iframe,
@@ -538,4 +522,31 @@ input[type="datetime-local"]:focus {
     left: 0;
     width: 100%;
     height: 100%;
+}
+
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    transition: background-image 0.5s ease-in-out;
+}
+
+body.bg-login::before {
+    background-image: url('assets/telainicial.jpg');
+}
+
+body.bg-agente::before,
+body.bg-medico::before,
+body.bg-paciente::before {
+    background-image: url('assets/telasbackground.jpg');
 }
