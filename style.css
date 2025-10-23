@@ -11,7 +11,7 @@
 }
 body.bg-login {
     background-color: #c8f1e6;
-    background-image: url('assets/telalogin.jpg');
+    background-image: url('assets/unnamed.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -32,7 +32,7 @@ body.bg-medico {
 }
 body.bg-paciente {
     background-color: #e8f5e9;
-    background-image: url('assets/telapaciente.jpg');
+    background-image: url('assets/telamedico2.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
