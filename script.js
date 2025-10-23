@@ -72,7 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         showScreen(screenId) {
     
-            // ======== ÚNICA ALTERAÇÃO NESTE ARQUIVO ========
             const backgroundMap = {
                 'screen-login': 'bg-login',
                 'screen-login-agente': 'bg-agente',
@@ -86,11 +85,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 'screen-agente-form': 'bg-agente',
                 'screen-agente-lista': 'bg-agente',
                 'screen-medico': 'bg-medico',
-                'screen-paciente': 'bg-paciente', // Nova tela de Menu
-                'screen-paciente-lembretes': 'bg-paciente', // Tela de lembretes
-                'screen-paciente-videos': 'bg-paciente' // Nova tela de vídeos
+                'screen-paciente': 'bg-paciente',
+                'screen-paciente-lembretes': 'bg-paciente',
+                'screen-paciente-videos': 'bg-paciente'
             };
-            // ======== FIM DA ALTERAÇÃO ========
+            
 
             document.body.className = '';
             const newClass = backgroundMap[screenId] || 'bg-login';
@@ -212,8 +211,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     this.showScreen('screen-medico');
                 }
                 if (role === 'paciente') {
-                    this.renderAlarmes(); // Continua renderizando os alarmes
-                    this.showScreen('screen-paciente'); // Mostra o NOVO MENU
+                    this.renderAlarmes();
+                    this.showScreen('screen-paciente');
                 }
             } else {
                 this.showNotification('Credenciais inválidas.', 'error');
@@ -431,7 +430,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         },
         createPacienteCard(p, role) {
-            // ... (função sem alteração) ...
             const card = document.createElement('div');
             card.className = 'paciente-card';
             const createInput = (name, value, placeholder, type = 'text') => `<input name="${name}" type="${type}" value="${value || ''}" placeholder="${placeholder}" disabled>`;
@@ -491,7 +489,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return card;
         },
         setupAutocomplete() {
-            // --- LÓGICA EXISTENTE (AGENTE) ---
+        
             const searchInput = document.getElementById('r-medic-search');
             if (searchInput) {
                 const medBox = document.getElementById('med-box');
@@ -673,7 +671,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 container.appendChild(item);
             });
 
-            // Adiciona listeners aos novos botões de excluir
+            
             container.querySelectorAll('.alarme-delete-btn').forEach(btn => {
                 btn.addEventListener('click', () => {
                     this.handleDeleteAlarme(parseInt(btn.dataset.id, 10));
