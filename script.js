@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const App = {
         state: {
             pacientes: [],
-            alarmes: [], // NOVO: Estado para os alarmes
+            alarmes: [],
             users: {
                 medico: {
                     '0102': {
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             },
             data: {
-                // ... (lista de medicamentos e bairros permanece a mesma) ...
+               
                 medicamentos: ['Abacavir', 'Abemaciclib', 'Abaloparatida', 'Acebutolol', 'Acarbose', 'Acetazolamida', 'Acetil-L-carnitina', 'Ácido Acetilsalicílico', 'Acido Fólico', 'Ácido nicotínico', 'Aclidínio', 'Adalimumabe', 'Agomelatina', 'Albiglutida', 'Albumin', 'Alendronato', 'Alfacalcidol', 'Alirocumabe', 'Aliskiren', 'Allopurinol', 'Alogliptina', 'Alosetron', 'Alpha-Lipoico', 'Amantadina', 'Amilorida', 'Amiodarona', 'Amisulprida', 'Amitriptilina', 'Amlodipina', 'Amlodipina+Benazepril', 'Amoxicilina', 'Anacetrapibe', 'Anfetamina/Sal', 'Apixabana', 'Aripiprazol', 'Argatroban', 'Asenapina', 'Atomoxetina', 'Atorvastatina', 'Atorvastatina+Ezetimiba', 'Azatioprina', 'Azitromicina', 'Baclofeno', 'Baclofeno intratecal', 'Barnidipina', 'Baricitinibe', 'Benazepril', 'Bendroflumetiazida', 'Benralizumabe', 'Bempedoico', 'Bepridil', 'Betametasona', 'Bictegravir', 'Bimatoprosta', 'Biotina', 'Bisoprolol', 'Bivalirudina', 'Bosentan', 'Brimonidina', 'Brinzolamida', 'Bromocriptina', 'Budesonida', 'Budesonida oral', 'Bupropiona', 'Cabergolina', 'Calcitonina', 'Calcitriol', 'Cálcio + Vitamina D', 'Cálcio Carbonato', 'Candesartana', 'Cangrelor', 'Canagliflozina', 'Canagliflozina+Metformina', 'Capecitabina', 'Carbamazepina', 'Carbidopa/Levodopa', 'Carbonato de Lítio', 'Carvedilol', 'Certolizumabe', 'Cilostazol', 'Cinacalcete', 'Citalopram', 'Citrato de Cálcio', 'Clevidipina', 'Clobazam', 'Clobetasol', 'Clomipramina', 'Clonidina', 'Clopidogrel', 'Clortalidona', 'Clozapina', 'Cobalamina', 'Coenzima Q10', 'Colchicina', 'Colecalciferol', 'Colesevelam', 'Colestipol', 'Colestiramina', 'Complexo B', 'Condroitina', 'Cromo Picolinato', 'Ciclosporina', 'Ciclosporina oftálmica', 'Dabigatran etexilato', 'Dabigatrana', 'Daclatasvir', 'Dantroleno', 'Dapagliflozina', 'Darbepoetina alfa', 'Dasatinibe', 'Deferasirox', 'Deferoxamina', 'Denosumabe', 'Desogestrel', 'Desmopressina', 'Desvenlafaxina', 'Dexametasona', 'Digoxina', 'Diltiazem', 'Dipiridamol', 'Dipirona', 'Dolutegravir', 'Donepezila', 'Dorzolamida', 'Doxazosina', 'Doxepina', 'Drospirenona+Etinilestradiol', 'Dulaglutida', 'Duloxetina', 'Dupilumabe', 'Edoxabana', 'Efavirenz', 'Eliglustat', 'Eluxadolina', 'Elvitegravir', 'Emtricitabina', 'Empagliflozina', 'Empagliflozina+Linagliptina', 'Enalapril', 'Enalapril+Hidroclorotiazida', 'Enoxaparina', 'Entecavir', 'Eplerenona', 'Eprosartan', 'Ergocalciferol', 'Eritropoetina', 'Erlotinibe', 'Ertugliflozina', 'Escitalopram', 'Esmolol', 'Esomeprazol', 'Espironolactona', 'Estância', 'Estradiol', 'Estrogênio conjugado', 'Eszopiclona', 'Etanercepte', 'Ethosuximida', 'Etinilestradiol', 'Etravirina', 'Evolocumabe', 'Exenatida', 'Ezetimiba', 'Febuxostate', 'Felodipina', 'Fenofibrato', 'Fenitoina', 'Ferro (Sulfato Ferroso)', 'Ferro Polimaltose', 'Finerenona', 'Flecainida', 'Fluconazol', 'Fluoxetina', 'Fluticasona', 'Fluvastatina', 'Fondaparinux', 'Formoterol', 'Formoterol/Budesonida', 'Fosinopril', 'Fosfato de Sevelamer', 'Gabapentina', 'Galantamina', 'Gefitinibe', 'Gemfibrozila', 'Gliburida', 'Gliclazida', 'Glimepirida', 'Glipizida', 'Glucosamina', 'Goserelina', 'Golimumabe', 'Guanabenz', 'Guanfacina', 'Guselkumabe', 'Haloperidol', 'Heparina', 'Hidralazina', 'Hidroclorotiazida', 'Hydroxyurea', 'Ibandronato', 'Ibuprofeno', 'Icosapent Ethyl', 'Imatinibe', 'Imipramina', 'Indapamida', 'Infliximabe', 'Insulina Aspart', 'Insulina Degludeca', 'Insulina Detemir', 'Insulina Glargina', 'Insulina Glulisina', 'Insulina Lispro', 'Insulina NPH', 'Insulina Regular', 'Insulina U-500', 'Ipratrópio', 'Irbesartana', 'Iron sucrose', 'Isradipina', 'Isotretinoína', 'Itraconazol', 'Ivabradina', 'Ixekizumabe', 'L-Arginina', 'L-Carnitina', 'Lamivudina', 'Lamotrigina', 'Lanreotida', 'Lansoprazol', 'Latanoprosta', 'Ledipasvir', 'Leflunomida', 'Leuprorrelina', 'Levetiracetam', 'Levocarnitina', 'Levodopa/Carbidopa', 'Levofloxacino', 'Levomepromazina', 'Levonorgestrel', 'Levotiroxina', 'Linaclotida', 'Linagliptina', 'Liotironina', 'Liraglutida', 'Lisdexanfetamina', 'Lisinopril', 'Lithium', 'Lomitapida', 'Loperamida', 'Loratadina', 'Lorazepam', 'Losartana', 'Lovastatina', 'Lubiprostone', 'Lurasidona', 'Macitentan', 'Magnésio', 'Magnésio quelato', 'Maprotilina', 'Mecasermin', 'Medroxiprogesterona', 'Memantina', 'Mepolizumabe', 'Mesalazina', 'Metformina', 'Metformina+Saxagliptina', 'Methotrexate', 'Metildopa', 'Metilfenidato', 'Metimazol', 'Metoprolol', 'Metoprolol succinato', 'Metoprolol tartrato', 'Metronidazol tópico', 'Micofenolato de mofetila', 'Miglustat', 'Miglitol', 'Milrinona', 'Minoxidil', 'Mipomersen', 'Mirtazapina', 'Molisbdênio', 'Mononitrato de Isossorbida', 'Montelucaste', 'Multivitamínico', 'N-Acetilcisteína', 'Nadolol', 'Naltrexona', 'Nateglinida', 'Nebivolol', 'Nebivolol hidrocloridrato', 'Nevirapina', 'Niacina', 'Nicardipina', 'Nicorandil', 'Nifedipina', 'Nilotinibe', 'Nintedanibe', 'Nitisinona', 'Nitrato de isossorbida', 'Nitrato isossorbida de longa ação', 'Nitroglicerina', 'Norgestrel', 'Nortriptilina', 'Octreotide', 'Olanzapina', 'Olmesartana', 'Olmesartana+Hidroclorotiazida', 'Omalizumabe', 'Omega-3 (EPA/DHA)', 'Ômega-3', 'Omeprazol', 'Onabotulinumtoxina A', 'Orlistat', 'Oxcarbazepina', 'Oxprenolol', 'Palbociclib', 'Pantoprazol', 'Paroxetina', 'Patiromer', 'Pegvisomanto', 'Perampanel', 'Perfenazina', 'Perindopril', 'Perindopril+Indapamida', 'Pioglitazona', 'Pimavanserina', 'Pimecrolimo', 'Pimecrolimo tópico', 'Pimozida', 'Pirfenidona', 'Pitavastatina', 'Policosanol', 'Posaconazol', 'Potássio Cloreto', 'Pramipexol', 'Pramipexol ER', 'Pramlintida', 'Prasugrel', 'Pravastatina', 'Prazosin', 'Prednisona', 'Pregabalina', 'Procainamida', 'Propafenona', 'Propranolol', 'Propranolol CR', 'Propranolol LA', 'Propiltiouracil', 'Quetiapina', 'Quinapril', 'Raloxifeno', 'Raltegravir', 'Ramipril', 'Ranolazina', 'Rasagilina', 'Reboxetina', 'Repaglinida', 'Reslizumabe', 'Restasis (Ciclosporina)', 'Ribavirina', 'Ribociclib', 'Riociguat', 'Risedronato', 'Risperidona', 'Risankizumabe', 'Ritonavir', 'Rivastigmina', 'Rivaroxabana', 'Ropinirol', 'Ropinirol CR', 'Rosiglitazona', 'Rosuvastatina', 'Sacubitril/Valsartana', 'Salmeterol', 'Salmeterol/Fluticasona', 'SAMe (S-adenosylmethionine)', 'Saxagliptina', 'Secukinumabe', 'Selegilina', 'Selenio', 'Selexipag', 'Semaglutida', 'Sertindol', 'Sertralina', 'Setmelanotide', 'Sevelamer', 'Sildenafil', 'Simvastatina', 'Simvastatina+Ezetimiba', 'Sitagliptina', 'Sodium Zirconium Cyclosilicate', 'Sofosbuvir', 'Somatropina', 'Sorafenibe', 'Sotalol', 'Sparsentan', 'Spironolactona', 'Stiripentol', 'Sucralfato', 'Sulfassalazina', 'Sulfato de magnésio', 'Sunitinibe', 'Tacrolimo', 'Tacrolimo tópico', 'Tadalafil', 'Taspoglutida', 'Telmisartana', 'Telmisartana+Hidroclorotiazida', 'Temozolomida', 'Tenofovir alafenamida', 'Tenofovir disoproxil', 'Terazosina', 'Teriparatida', 'Terlipressina', 'Testosterona enantato', 'Theophylline', 'Tiamina (B1)', 'Ticagrelor', 'Timolol', 'Timolol oftálmico', 'Tiotrópio', 'Tizanidina', 'Tofacitinibe', 'Topiramato', 'Trandolapril', 'Travoprosta', 'Trazodona', 'Treprostinil', 'Tretinoína', 'Triamcinolona', 'Triamtereno', 'Trimetazidina', 'Upadacitinibe', 'Ursodeoxicolic', 'Ursodeoxicolic acid', 'Ustekinumabe', 'Valproato', 'Valproato de Sódio', 'Valsartana', 'Valsartana/Hidroclorotiazida', 'Vareniclina', 'Varfarina', 'Velpatasvir', 'Venlafaxina', 'Verapamil', 'Vildagliptina', 'Vorapaxar', 'Voriconazol', 'Warfarina', 'Zafirlucaste', 'Zidovudina', 'Zinco', 'Ziprasidona', 'Zolpidem', 'Zoledronato'],
                 bairros: {
                     Aracaju: ["Atalaia", "Coroa do Meio", "Farolândia", "Aruana", "Jardins", "Salgado Filho", "São José", "Suíssa", "Centro", "13 de Julho", "Getúlio Vargas", "Cirurgia", "Pereira Lobo", "Dezoito do Forte", "Novo Paraíso", "Luzia", "Olaria", "Palestina", "Bugio", "Industrial", "Cidade Nova", "América", "Capucho", "Siqueira Campos", "São Conrado", "Jabotiana", "Santa Maria", "Aeroporto", "Porto Dantas", "Grageru", "Inácio Barbosa", "Marivan", "Ponto Novo", "Lamarão", "José Conrado de Araújo"],
@@ -47,8 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
             this.populateDatalists();
             this.attachEventListeners();
             this.setupAutocomplete();
-            this.setupPacienteScreenEvents(); // NOVO: Adiciona eventos da tela paciente
-            this.startAlarmChecker(); // NOVO: Inicia o verificador de alarmes
+            this.setupPacienteScreenEvents();
+            this.startAlarmChecker();
             this.showScreen('screen-login');
         },
         showNotification(message, type = 'success') {
@@ -64,14 +64,14 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         loadState() {
             this.state.pacientes = JSON.parse(localStorage.getItem('connect_pacientes')) || [];
-            this.state.alarmes = JSON.parse(localStorage.getItem('connect_alarmes')) || []; // NOVO: Carrega alarmes
+            this.state.alarmes = JSON.parse(localStorage.getItem('connect_alarmes')) || [];
         },
         saveState() {
             localStorage.setItem('connect_pacientes', JSON.stringify(this.state.pacientes));
-            localStorage.setItem('connect_alarmes', JSON.stringify(this.state.alarmes)); // NOVO: Salva alarmes
+            localStorage.setItem('connect_alarmes', JSON.stringify(this.state.alarmes));
         },
         showScreen(screenId) {
-            // ... (função sem alteração) ...
+    
             const backgroundMap = {
                 'screen-login': 'bg-login',
                 'screen-login-agente': 'bg-agente',
@@ -95,7 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (screen) screen.classList.add('active');
         },
         populateDatalists() {
-            // ... (função sem alteração) ...
             const cidadeSelect = document.getElementById('r-cidade');
             cidadeSelect.addEventListener('change', () => {
                 const cidade = cidadeSelect.value;
@@ -110,7 +109,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         },
         formatCPF(cpf) {
-            // ... (função sem alteração) ...
             cpf = cpf.replace(/\D/g, '');
             cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
             cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
@@ -118,7 +116,6 @@ document.addEventListener('DOMContentLoaded', () => {
             return cpf;
         },
         attachEventListeners() {
-            // ... (função sem alteração, os novos eventos serão adicionados em setupPacienteScreenEvents) ...
             document.body.addEventListener('click', e => {
                 const target = e.target;
                 if (target.dataset.target) this.showScreen(target.dataset.target);
@@ -210,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     this.showScreen('screen-medico');
                 }
                 if (role === 'paciente') {
-                    this.renderAlarmes(); // NOVO: Renderiza alarmes ao logar
+                    this.renderAlarmes();
                     this.showScreen('screen-paciente');
                 }
             } else {
@@ -218,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         },
         handleRegistro(form, role) {
-            // ... (função sem alteração) ...
+        
             const formData = new FormData(form);
             const newUser = Object.fromEntries(formData.entries());
             const idMap = {
@@ -234,7 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
             this.showScreen('screen-login');
         },
         handleSalvarPaciente(form) {
-            // ... (função sem alteração) ...
+        
             const nomeInput = form.querySelector('#r-nome');
             if (!/^[A-Za-zÀ-ú\s]+$/.test(nomeInput.value.trim())) {
                 return this.showNotification('O campo "Nome completo" deve conter apenas letras e espaços.', 'error');
@@ -281,7 +278,6 @@ document.addEventListener('DOMContentLoaded', () => {
             this.showScreen('screen-agente-menu');
         },
         handleEditarPaciente(id, form) {
-            // ... (função sem alteração) ...
             const nomeInput = form.querySelector('[name="nome"]');
             if (!/^[A-Za-zÀ-ú\s]+$/.test(nomeInput.value.trim())) {
                 this.toggleEditState(form.closest('.paciente-card'), false);
@@ -312,7 +308,6 @@ document.addEventListener('DOMContentLoaded', () => {
             this.toggleEditState(form.closest('.paciente-card'), false);
         },
         handleExcluirPaciente(id) {
-            // ... (função sem alteração) ...
             if (!confirm('Tem certeza que deseja excluir este paciente?')) return;
             const dataPaciente = this.state.pacientes.find(p => p.id === id)?.data;
             this.state.pacientes = this.state.pacientes.filter(p => p.id !== id);
@@ -321,7 +316,6 @@ document.addEventListener('DOMContentLoaded', () => {
             this.renderListaPacientes(dataPaciente);
         },
         renderPastas() {
-            // ... (função sem alteração) ...
             const screen = document.getElementById('screen-agente-lista');
             const container = screen.querySelector('#lista-container');
             screen.querySelector('.back-to-pastas')?.remove();
@@ -347,7 +341,6 @@ document.addEventListener('DOMContentLoaded', () => {
             this.showScreen('screen-agente-lista');
         },
         renderListaPacientes(data) {
-            // ... (função sem alteração) ...
             const screen = document.getElementById('screen-agente-lista');
             screen.querySelector('.back-to-pastas')?.remove();
             screen.querySelector('h3.dynamic-title')?.remove();
@@ -378,7 +371,6 @@ document.addEventListener('DOMContentLoaded', () => {
             renderCards(pacientesDoDia);
         },
         renderDashboardMedico(lista = this.state.pacientes) {
-            // ... (função sem alteração) ...
             const container = document.getElementById('medico-pacientes-list');
             container.innerHTML = '';
             if (lista.length === 0) {
@@ -387,7 +379,6 @@ document.addEventListener('DOMContentLoaded', () => {
             lista.forEach(p => container.appendChild(this.createPacienteCard(p, 'medico')));
         },
         toggleEditState(card, isEditing) {
-            // ... (função sem alteração) ...
             const form = card.querySelector('form');
             if (!form) return;
             const fields = form.querySelectorAll('input, select');
@@ -535,10 +526,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
 
-            // --- LÓGICA NOVA (PACIENTE) ---
             const pacienteSearchInput = document.getElementById('paciente-medic-search');
             if (pacienteSearchInput) {
-                const pacienteMedBox = document.getElementById('paciente-med-box'); // Container
+                const pacienteMedBox = document.getElementById('paciente-med-box');
                 let pacienteSuggestionsBox = null;
 
                 pacienteSearchInput.addEventListener('input', () => {
@@ -554,13 +544,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (!filteredMeds.length) return;
 
                     pacienteSuggestionsBox = document.createElement('div');
-                    pacienteSuggestionsBox.className = 'suggestions-box'; // Reusa o estilo
+                    pacienteSuggestionsBox.className = 'suggestions-box';
                     filteredMeds.slice(0, 7).forEach(med => {
                         const item = document.createElement('div');
                         item.className = 'suggestion-item';
                         item.textContent = med;
                         item.onclick = () => {
-                            pacienteSearchInput.value = med; // Apenas define o valor
+                            pacienteSearchInput.value = med;
                             if (pacienteSuggestionsBox) pacienteSuggestionsBox.remove();
                             pacienteSearchInput.focus();
                         };
@@ -578,10 +568,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         },
 
-        // =======================================
-        //     NOVAS FUNÇÕES - TELA DO PACIENTE
-        // =======================================
-
         setupPacienteScreenEvents() {
             const form = document.getElementById('form-novo-alarme');
             form?.addEventListener('submit', e => {
@@ -595,7 +581,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!med || !time) {
                     return this.showNotification('Preencha o nome do remédio e a data/hora.', 'error');
                 }
-                // Verifica se a data/hora está no formato ISO correto (necessário para datetime-local)
+               
                 if (isNaN(alarmTime.getTime())) {
                      return this.showNotification('Data ou hora inválida.', 'error');
                 }
@@ -606,20 +592,52 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.state.alarmes.push({
                     id: Date.now(),
                     med: med,
-                    time: time // Salva como string ISO
+                    time: time
                 });
                 this.saveState();
                 this.renderAlarmes();
                 this.showNotification('Lembrete salvo!');
                 form.reset();
+
+                
+                const timeInputElement = document.getElementById('paciente-alarme-time');
+                if (timeInputElement) {
+                    timeInputElement.setAttribute('type', 'text');
+                    timeInputElement.style.color = 'var(--muted)';
+                }
+
             });
+
+            
+            const timeInput = document.getElementById('paciente-alarme-time');
+            if (timeInput) {
+                
+                const setInputType = (type) => {
+                    timeInput.setAttribute('type', type);
+                    if (type === 'text') {
+                        timeInput.style.color = 'var(--muted)';
+                    } else {
+                        timeInput.style.color = '#333';
+                    }
+                };
+                setInputType('text');
+
+                timeInput.addEventListener('focus', () => {
+                    setInputType('datetime-local');
+                });
+
+                timeInput.addEventListener('blur', () => {
+                    if (!timeInput.value) {
+                        setInputType('text');
+                    }
+                });
+            }
         },
 
         renderAlarmes() {
             const container = document.getElementById('lista-alarmes-paciente');
             if (!container) return;
 
-            // Ordena alarmes por data (mais próximos primeiro)
             const sortedAlarmes = [...this.state.alarmes].sort((a, b) => new Date(a.time) - new Date(b.time));
 
             if (sortedAlarmes.length === 0) {
@@ -627,7 +645,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            container.innerHTML = ''; // Limpa a lista
+            container.innerHTML = '';
             sortedAlarmes.forEach(alarme => {
                 const item = document.createElement('div');
                 item.className = 'alarme-item';
@@ -666,8 +684,6 @@ document.addEventListener('DOMContentLoaded', () => {
         },
 
         startAlarmChecker() {
-            // Pede permissão de notificação assim que o app carrega
-            // (Melhor do que pedir apenas na hora do alarme)
             if ('Notification' in window && Notification.permission !== 'granted') {
                  Notification.requestPermission();
             }
@@ -681,17 +697,16 @@ document.addEventListener('DOMContentLoaded', () => {
                         this.triggerAlarm(alarme);
                     });
                     
-                    // Remove os alarmes que já dispararam
                     const remainingAlarmes = this.state.alarmes.filter(a => new Date(a.time) > now);
                     this.state.alarmes = remainingAlarmes;
                     this.saveState();
                     
-                    // Atualiza a UI se o paciente estiver na tela
+                    
                     if(document.getElementById('screen-paciente').classList.contains('active')) {
                         this.renderAlarmes();
                     }
                 }
-            }, 15000); // Verifica a cada 15 segundos
+            }, 5000);
         },
 
         triggerAlarm(alarm) {
@@ -700,13 +715,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const showNotification = () => {
                 new Notification('Connect - Lembrete de Medicamento', {
                     body: `Hora de tomar seu ${alarm.med}!`,
-                    icon: 'assets/favicon.png', // Usa o favicon existente
-                    silent: false // Garante que tenha som (se o SO permitir)
+                    icon: 'assets/favicon.png',
+                    silent: false
                 });
                 
                 const sound = document.getElementById('alarm-sound');
                 if (sound) {
-                    // .play() pode falhar se o usuário não interagiu com a página
                     sound.play().catch(e => console.warn("Interação do usuário necessária para tocar o som.", e));
                 }
             };
@@ -714,14 +728,14 @@ document.addEventListener('DOMContentLoaded', () => {
             if ('Notification' in window && Notification.permission === 'granted') {
                 showNotification();
             } else if ('Notification' in window && Notification.permission !== 'denied') {
-                // Pede permissão novamente caso não tenha sido dada
+               
                 Notification.requestPermission().then(permission => {
                     if (permission === 'granted') {
                         showNotification();
                     }
                 });
             } else {
-                // Fallback (plano B) se notificações forem bloqueadas
+                
                 alert(`LEMBRETE: Hora de tomar seu ${alarm.med}!`);
                 const sound = document.getElementById('alarm-sound');
                 if (sound) {

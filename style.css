@@ -175,9 +175,9 @@ input[type="datetime-local"] {
     -webkit-appearance: none;
     appearance: none;
 }
-input[type="datetime-local"] {
-    text-align: left;
-    color: var(--muted);
+input[type="datetime-local"],
+#paciente-alarme-time[type="text"] {
+    text-align: center; 
 }
 input[type="datetime-local"]:focus {
     color: #333;
