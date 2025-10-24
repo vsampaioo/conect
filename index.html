@@ -4,8 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Connect - Saúde</title>
-    <link rel="stylesheet" href="style.css?v=1.2">
-    <link rel="preload" href="assets/telalogin.jpg" as="image">
+    <link rel="stylesheet" href="style.css?v=1.3"> <link rel="preload" href="assets/telalogin.jpg" as="image">
     <link rel="preload" href="assets/telamedico2.jpg" as="image">
     <link rel="preload" href="assets/telapaciente.jpg" as="image">
     <link rel="icon" href="assets/favicon.png" type="image/png">
@@ -233,6 +232,8 @@
         <div class="panel login-block">
             <button data-target="screen-paciente-lembretes" class="primary">Lembretes de Medicação</button>
             <button data-target="screen-paciente-videos" class="primary">Praticar Atividade Física</button>
+            <button data-target="screen-paciente-medicacao" class="primary">Porque tomar medicação?</button>
+            <button data-target="screen-paciente-campanha" class="primary">Campanha do Mês</button>
         </div>
     </section>
 
@@ -287,6 +288,140 @@
             <video width="100%" controls playsinline poster="assets/poster_alongamento.jpeg">
                 <source src="assets/alongamento_lombar.mp4" type="video/mp4">
             </video>
+        </div>
+
+    </div>
+</section>
+
+<section id="screen-paciente-medicacao" class="screen">
+    <button class="back" data-target="screen-paciente">← Voltar ao Menu</button>
+    <h2>Porque tomar medicação?</h2>
+    
+    <div class="panel">
+        <p style="text-align: center; color: var(--muted);">Vídeos com Dra. Ana Beatriz</p>
+
+        <h3>Diabetes</h3>
+        <div class="video-container">
+            <video width="100%" controls playsinline poster="assets/poster_bia_diabetes.jpeg">
+                <source src="assets/bia_diabetes.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <h3>Hipertensão</h3>
+        <div class="video-container">
+            <video width="100%" controls playsinline poster="assets/poster_bia_hipertensao.jpeg">
+                <source src="assets/bia_hipertensao.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <h3>Colesterol</h3>
+        <div class="video-container">
+            <video width="100%" controls playsinline poster="assets/poster_bia_colesterol.jpeg">
+                <source src="assets/bia_colesterol.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <h3>Ansiedade</h3>
+        <div class="video-container">
+            <video width="100%" controls playsinline poster="assets/poster_bia_ansiedade.jpeg">
+                <source src="assets/bia_ansiedade.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <h3>Depressão</h3>
+        <div class="video-container">
+            <video width="100%" controls playsinline poster="assets/poster_bia_depressao.jpeg">
+                <source src="assets/bia_depressão.mp4" type="video/mp4">
+            </video>
+        </div>
+
+    </div>
+</section>
+
+<section id="screen-paciente-campanha" class="screen">
+    <button class="back" data-target="screen-paciente">← Voltar ao Menu</button>
+    <h2>Campanha do Mês</h2>
+    
+    <div class="panel">
+
+        <div class="paciente-card">
+            <div class="paciente-header">
+                <div class="paciente-header-info">
+                    <span>Outubro Rosa: Prevenção ao Câncer de Mama</span>
+                </div>
+                <span class="paciente-toggle">▶&#xFE0E;</span>
+            </div>
+            <div class="paciente-content">
+                <p>
+                    O Outubro Rosa é uma campanha internacional de conscientização sobre a importância da prevenção e do diagnóstico precoce do câncer de mama e, mais recentemente, sobre o câncer de colo do útero.
+                </p>
+                <p>
+                    <strong>A importância da prevenção:</strong>
+                </p>
+                <ul>
+                    <li>O câncer de mama é o tipo mais comum entre as mulheres no mundo e no Brasil.</li>
+                    <li>Quando diagnosticado precocemente, as chances de cura são muito elevadas.</li>
+                    <li>Realize o autoexame das mamas mensalmente.</li>
+                    <li>Consulte seu médico regularmente e faça a mamografia conforme a recomendação para sua faixa etária.</li>
+                </ul>
+                <p>
+                    Cuide-se! A prevenção é o melhor caminho. Procure a Unidade Básica de Saúde (UBS) mais próxima para mais informações.
+                </p>
+            </div>
+        </div>
+
+        <div class="paciente-card">
+            <div class="paciente-header">
+                <div class="paciente-header-info">
+                    <span>Novembro Azul: Mês da Saúde do Homem</span>
+                </div>
+                <span class="paciente-toggle">▶&#xFE0E;</span>
+            </div>
+            <div class="paciente-content">
+                <p>
+                    O Novembro Azul é dedicado à conscientização sobre o câncer de próstata e a saúde masculina em geral.
+                </p>
+                <p>
+                    Homens a partir de <strong>45 anos</strong> (com histórico familiar) ou <strong>50 anos</strong> (sem histórico) devem procurar a UBS para realizar os exames preventivos. Quebre o preconceito, sua saúde vale mais.
+                </p>
+            </div>
+        </div>
+
+        <div class="paciente-card">
+            <div class="paciente-header">
+                <div class="paciente-header-info">
+                    <span>Dia D de Vacinação contra a Gripe (Influenza)</span>
+                </div>
+                <span class="paciente-toggle">▶&#xFE0E;</span>
+            </div>
+            <div class="paciente-content">
+                <p>
+                    <strong>Data:</strong> Próximo Sábado, 26 de Outubro.
+                </p>
+                <p>
+                    Todas as Unidades Básicas de Saúde (UBS) do seu bairro estarão abertas das <strong>8h às 17h</strong> para a campanha de vacinação contra a Influenza (Gripe).
+                </p>
+                <p>
+                    Traga seu cartão de vacina e proteja sua família! A vacina é segura e essencial para grupos de risco.
+                </p>
+            </div>
+        </div>
+
+        <div class="paciente-card">
+            <div class="paciente-header">
+                <div class="paciente-header-info">
+                    <span>Janeiro Branco: Mês da Saúde Mental</span>
+                </div>
+                <span class="paciente-toggle">▶&#xFE0E;</span>
+            </div>
+            <div class="paciente-content">
+                <p>
+                    A campanha Janeiro Branco chama atenção para a importância de cuidar da saúde mental e emocional.
+                </p>
+                <p>
+                    Conversar sobre sentimentos é fundamental. Oferecemos grupos de apoio na sua UBS toda quarta-feira. Procure seu agente de saúde para mais informações. Você não está sozinho!
+                </p>
+            </div>
         </div>
 
     </div>

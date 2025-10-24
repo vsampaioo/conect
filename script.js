@@ -130,10 +130,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 'screen-medico': 'bg-medico',
                 'screen-paciente': 'bg-paciente',
                 'screen-paciente-lembretes': 'bg-paciente',
-                'screen-paciente-videos': 'bg-paciente'
+                'screen-paciente-videos': 'bg-paciente',
+                'screen-paciente-medicacao': 'bg-paciente', 
+                'screen-paciente-campanha': 'bg-paciente'
             };
             
-
             document.body.className = '';
             const newClass = backgroundMap[screenId] || 'bg-login';
             document.body.classList.add(newClass);
@@ -189,7 +190,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 const header = target.closest('.paciente-header');
                 if (header) {
                     const card = header.closest('.paciente-card');
-                    if (!card.classList.contains('editing')) {
+                    
+                    const isCampanhaScreen = target.closest('#screen-paciente-campanha');
+                    if (isCampanhaScreen || !card.classList.contains('editing')) {
                         card.classList.toggle('open');
                     }
                 }

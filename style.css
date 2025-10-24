@@ -248,7 +248,7 @@ input[type="datetime-local"]:focus {
     color: var(--accent-dark);
     cursor: pointer;
     background: #fff;
-    gap: 10px; /* --- ADICIONADO --- */
+    gap: 10px; 
 }
 .paciente-header:hover {
     background: #f9f9f9;
@@ -638,5 +638,35 @@ body.bg-paciente::before {
     position: absolute;
     top: 0;
     left: 0;
+    display: none;
+}
+
+
+#screen-paciente-campanha .paciente-content p,
+#screen-paciente-campanha .paciente-content ul {
+    text-align: justify;
+    line-height: 1.6;
+    color: var(--muted);
+    font-size: 0.95em;
+}
+
+#screen-paciente-campanha .paciente-content ul {
+    margin-left: 20px;
+    padding-left: 0;
+}
+
+#screen-paciente-campanha .paciente-content strong {
+    color: var(--accent-dark);
+    font-weight: 600;
+}
+
+#screen-paciente-campanha .paciente-header-info span {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+}
+
+#screen-paciente-campanha .paciente-list-photo,
+#screen-paciente-campanha .paciente-list-photo-placeholder {
     display: none;
 }
