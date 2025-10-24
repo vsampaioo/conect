@@ -42,6 +42,49 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         },
+        
+        
+        resizeImage(base64Str, maxWidth, callback) {
+            const img = new Image();
+            img.onload = () => {
+                if (img.width <= maxWidth) {
+                    callback(base64Str);
+                    return;
+                }
+                const canvas = document.createElement('canvas');
+                const scale = maxWidth / img.width;
+                canvas.width = maxWidth;
+                canvas.height = img.height * scale;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                callback(canvas.toDataURL('image/jpeg', 0.8));
+            };
+            img.src = base64Str;
+        },
+
+        handlePhotoCapture(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const preview = document.getElementById('photo-preview');
+            const dataInput = document.getElementById('r-foto-data');
+            const placeholder = document.getElementById('photo-placeholder');
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const imageDataUrl = e.target.result;
+                
+                
+                this.resizeImage(imageDataUrl, 400, (resizedDataUrl) => {
+                    dataInput.value = resizedDataUrl;
+                    preview.src = resizedDataUrl;
+                    preview.style.display = 'block';
+                    if (placeholder) placeholder.style.display = 'none';
+                });
+            };
+            reader.readAsDataURL(file);
+        },
+
         init() {
             this.loadState();
             this.populateDatalists();
@@ -163,6 +206,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     this.handleEditarPaciente(parseInt(form.dataset.id, 10), form);
                 }
             });
+
+           
+            document.getElementById('r-foto-input')?.addEventListener('change', (e) => {
+                this.handlePhotoCapture(e);
+            });
+            
+
             document.getElementById('r-idade')?.addEventListener('input', e => {
                 if (e.target.value.length > 3) e.target.value = e.target.value.slice(0, 3);
             });
@@ -246,6 +296,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const paciente = {
                 id: Date.now(),
                 data: new Date().toLocaleDateString('pt-BR'),
+                foto: form.querySelector('#r-foto-data').value || '',
                 nome: form.querySelector('#r-nome').value.trim(),
                 idade: form.querySelector('#r-idade').value.trim(),
                 peso: form.querySelector('#r-peso').value.trim(),
@@ -276,6 +327,22 @@ document.addEventListener('DOMContentLoaded', () => {
             this.saveState();
             this.showNotification('Paciente salvo com sucesso!');
             form.reset();
+
+            const preview = document.getElementById('photo-preview');
+            const placeholder = document.getElementById('photo-placeholder');
+
+            if (preview) {
+                preview.src = '';
+                preview.style.display = 'none';
+            }
+            if (placeholder) {
+                placeholder.style.display = 'block';
+            }
+            const fotoData = document.getElementById('r-foto-data');
+            if (fotoData) fotoData.value = '';
+            const fotoInput = document.getElementById('r-foto-input');
+            if (fotoInput) fotoInput.value = '';
+
             ['comorbidade-box', 'bebe-box', 'fuma-box', 'med-box', 'alergia-box', 'atividade-box'].forEach(id => {
                 document.getElementById(id).classList.add('hidden');
             });
@@ -432,6 +499,22 @@ document.addEventListener('DOMContentLoaded', () => {
         createPacienteCard(p, role) {
             const card = document.createElement('div');
             card.className = 'paciente-card';
+
+            
+            let photoHtmlHeader = '';
+            if (p.foto) {
+                photoHtmlHeader = `<img src="${p.foto}" alt="Foto de ${p.nome}" class="paciente-list-photo">`;
+            } else {
+                const inicial = p.nome ? p.nome.charAt(0).toUpperCase() : '?';
+                photoHtmlHeader = `<div class="paciente-list-photo-placeholder">${inicial}</div>`;
+            }
+            
+            let photoHtmlDetail = '';
+            if (p.foto) {
+                photoHtmlDetail = `<img src="${p.foto}" alt="Foto de ${p.nome}" class="paciente-detail-photo">`;
+            }
+          
+
             const createInput = (name, value, placeholder, type = 'text') => `<input name="${name}" type="${type}" value="${value || ''}" placeholder="${placeholder}" disabled>`;
             const createCheckbox = (name, checked, text) => `<div class="checkbox-group"><label class="checkbox-row"><input name="${name}" type="checkbox" ${checked ? 'checked' : ''} disabled> ${text}</label></div>`;
             let fumaContent = '';
@@ -441,35 +524,48 @@ document.addEventListener('DOMContentLoaded', () => {
                     fumaContent += `<div class="conditional-box">${createInput('cargaTabagica', `${(p.cargaTabagica || 0).toFixed(2)} maços-ano`, 'Carga Tabágica', 'text')}</div>`;
                 }
             }
-            card.innerHTML = `<div class="paciente-header"><span>${p.nome}</span><span class="paciente-toggle">▶&#xFE0E;</span></div><div class="paciente-content"><form class="form form-edit-paciente" data-id="${p.id}" novalidate><h4>Detalhes do Paciente</h4>
-                ${createInput('nome', p.nome, 'Nome', 'text')}
-                ${createInput('idade', p.idade, 'Idade', 'number')}
-                ${createInput('cpf', p.cpf ? this.formatCPF(p.cpf) : '', 'CPF', 'text')}
-                ${createInput('peso', p.peso, 'Peso (kg)', 'number')}
-                ${createInput('endereco', p.endereco, 'Endereço')}
-                ${createCheckbox('comorbidade', p.comorbidade, 'Possui comorbidade?')}
-                <div class="conditional-box ${p.comorbidade ? '' : 'hidden'}">${createInput('comorbidadeTipo', p.comorbidadeTipo, 'Qual?')}</div>
-                <div class="checkbox-row-inline">
-                    <label class="checkbox-row"><input name="avc" type="checkbox" ${p.avc ? 'checked' : ''} disabled> AVC</label>
-                    <label class="checkbox-row"><input name="infarto" type="checkbox" ${p.infarto ? 'checked' : ''} disabled> Infarto</label>
+            
+            
+            card.innerHTML = `
+            <div class="paciente-header">
+                <div class="paciente-header-info"> ${photoHtmlHeader} <span>${p.nome}</span>
                 </div>
-                ${createCheckbox('bebe', p.bebe, 'Paciente bebe?')}
-                <div class="conditional-box ${p.bebe ? '' : 'hidden'}">${createInput('bebeTipo', p.bebeTipo, 'Fermentada ou Destilada?')}</div>
-                ${fumaContent}
-                ${createCheckbox('alergia', p.alergia, 'Possui alergia?')}
-                <div class="conditional-box ${p.alergia ? '' : 'hidden'}">${createInput('alergiaTipo', p.alergiaTipo, 'Qual tipo de Alergia?')}</div>
-                ${createInput('medicamento', p.medicamento, 'Medicamento')}
-                ${createCheckbox('atividade', p.atividade, 'Pratica atividade física?')}
-                <div class="conditional-box ${p.atividade ? '' : 'hidden'}">${createInput('atividadeTipo', p.atividadeTipo, 'Qual exercício?')}<select name="atividadeFrequencia" disabled><option value="">Frequência</option><option value="1 vez na semana" ${p.atividadeFrequencia === '1 vez na semana' ? 'selected' : ''}>1 vez/semana</option><option value="1 a 3 vezes na semana" ${p.atividadeFrequencia === '1 a 3 vezes na semana' ? 'selected' : ''}>1-3 vezes/semana</option><option value="Mais de 3 vezes na semana" ${p.atividadeFrequencia === 'Mais de 3 vezes na semana' ? 'selected' : ''}>+3 vezes/semana</option></select></div>
-                <div class="form-actions actions-view">
-                    <button type="button" data-action="edit-patient" class="primary edit-btn">Editar</button>
-                    ${role === 'agente' ? `<button type="button" class="primary delete-btn" onclick="App.handleExcluirPaciente(${p.id})">Excluir</button>` : ''}
-                </div>
-                <div class="form-actions actions-edit hidden">
-                    <button type="submit" class="primary">Salvar</button>
-                    <button type="button" data-action="cancel-edit" class="primary delete-btn">Cancelar</button>
-                </div>
-            </form></div>`;
+                <span class="paciente-toggle">▶&#xFE0E;</span>
+            </div>
+            <div class="paciente-content">
+                <form class="form form-edit-paciente" data-id="${p.id}" novalidate>
+                    ${photoHtmlDetail} <h4>Detalhes do Paciente</h4>
+                    ${createInput('nome', p.nome, 'Nome', 'text')}
+                    ${createInput('idade', p.idade, 'Idade', 'number')}
+                    ${createInput('cpf', p.cpf ? this.formatCPF(p.cpf) : '', 'CPF', 'text')}
+                    ${createInput('peso', p.peso, 'Peso (kg)', 'number')}
+                    ${createInput('endereco', p.endereco, 'Endereço')}
+                    ${createCheckbox('comorbidade', p.comorbidade, 'Possui comorbidade?')}
+                    <div class="conditional-box ${p.comorbidade ? '' : 'hidden'}">${createInput('comorbidadeTipo', p.comorbidadeTipo, 'Qual?')}</div>
+                    <div class="checkbox-row-inline">
+                        <label class="checkbox-row"><input name="avc" type="checkbox" ${p.avc ? 'checked' : ''} disabled> AVC</label>
+                        <label class="checkbox-row"><input name="infarto" type="checkbox" ${p.infarto ? 'checked' : ''} disabled> Infarto</label>
+                    </div>
+                    ${createCheckbox('bebe', p.bebe, 'Paciente bebe?')}
+                    <div class="conditional-box ${p.bebe ? '' : 'hidden'}">${createInput('bebeTipo', p.bebeTipo, 'Fermentada ou Destilada?')}</div>
+                    ${fumaContent}
+                    ${createCheckbox('alergia', p.alergia, 'Possui alergia?')}
+                    <div class="conditional-box ${p.alergia ? '' : 'hidden'}">${createInput('alergiaTipo', p.alergiaTipo, 'Qual tipo de Alergia?')}</div>
+                    ${createInput('medicamento', p.medicamento, 'Medicamento')}
+                    ${createCheckbox('atividade', p.atividade, 'Pratica atividade física?')}
+                    <div class="conditional-box ${p.atividade ? '' : 'hidden'}">${createInput('atividadeTipo', p.atividadeTipo, 'Qual exercício?')}<select name="atividadeFrequencia" disabled><option value="">Frequência</option><option value="1 vez na semana" ${p.atividadeFrequencia === '1 vez na semana' ? 'selected' : ''}>1 vez/semana</option><option value="1 a 3 vezes na semana" ${p.atividadeFrequencia === '1 a 3 vezes na semana' ? 'selected' : ''}>1-3 vezes/semana</option><option value="Mais de 3 vezes na semana" ${p.atividadeFrequencia === 'Mais de 3 vezes na semana' ? 'selected' : ''}>+3 vezes/semana</option></select></div>
+                    <div class="form-actions actions-view">
+                        <button type="button" data-action="edit-patient" class="primary edit-btn">Editar</button>
+                        ${role === 'agente' ? `<button type="button" class="primary delete-btn" onclick="App.handleExcluirPaciente(${p.id})">Excluir</button>` : ''}
+                    </div>
+                    <div class="form-actions actions-edit hidden">
+                        <button type="submit" class="primary">Salvar</button>
+                        <button type="button" data-action="cancel-edit" class="primary delete-btn">Cancelar</button>
+                    </div>
+                </form>
+            </div>`;
+           
+
             ['comorbidade', 'bebe', 'fuma', 'alergia', 'atividade'].forEach(name => {
                 card.querySelector(`[name="${name}"]`)?.addEventListener('change', e => {
                     const form = e.target.closest('form');

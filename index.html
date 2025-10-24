@@ -114,6 +114,14 @@
         <h2>Formulário do Paciente</h2>
         <div class="panel">
             <form id="form-paciente-novo" class="form" novalidate>
+                <div class="photo-capture-block">
+    <label for="r-foto-input">
+        <img id="photo-preview" src="" alt="Prévia da foto" class="photo-preview-circle">
+        <img id="photo-placeholder" src="assets/avatar.png" alt="Tirar Foto" class="photo-placeholder-icon">
+    </label>
+    <input type="file" accept="image/*" capture id="r-foto-input" style="display: none;">
+    <input type="hidden" id="r-foto-data">
+</div>
                 <input id="r-nome" type="text" placeholder="Nome completo" required pattern="[A-Za-zÀ-ú\s]+">
                 <input id="r-idade" type="number" inputmode="numeric" placeholder="Idade" required max="999">
                 <input id="r-peso" type="number" inputmode="decimal" placeholder="Peso (kg)">
@@ -135,6 +143,7 @@
                     <option value="">Selecione o bairro</option>
                 </select>
                 <input id="r-endereco" type="text" placeholder="Endereço">
+                
                 <div class="checkbox-group">
                     <label class="checkbox-row" for="r-comorbidade">
                         <input id="r-comorbidade" type="checkbox"> Possui algum tipo de comorbidade?
@@ -223,7 +232,7 @@
         
         <div class="panel login-block">
             <button data-target="screen-paciente-lembretes" class="primary">Lembretes de Medicação</button>
-            <button data-target="screen-paciente-videos" class="primary">Atividade Física</button>
+            <button data-target="screen-paciente-videos" class="primary">Praticar Atividade Física</button>
         </div>
     </section>
 
