@@ -670,3 +670,7 @@ body.bg-paciente::before {
 #screen-paciente-campanha .paciente-list-photo-placeholder {
     display: none;
 }
+h3 a {
+  color: inherit;
+  text-decoration: none;
+}

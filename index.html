@@ -231,9 +231,9 @@
         
         <div class="panel login-block">
             <button data-target="screen-paciente-lembretes" class="primary">Lembretes de Medicação</button>
-            <button data-target="screen-paciente-videos" class="primary">Praticar Atividade Física</button>
-            <button data-target="screen-paciente-medicacao" class="primary">Porque tomar medicação?</button>
-            <button data-target="screen-paciente-campanha" class="primary">Campanha do Mês</button>
+            <button data-target="screen-paciente-videos" class="primary">Movimente-se</button>
+            <button data-target="screen-paciente-medicacao" class="primary">Importância do Tratamento</button>
+            <button data-target="screen-paciente-campanha" class="primary">Campanhas do Mês</button>
         </div>
     </section>
 
@@ -262,85 +262,107 @@
 
     <section id="screen-paciente-videos" class="screen">
     <button class="back" data-target="screen-paciente">← Voltar ao Menu</button>
-    <h2>Exercícios Pilates</h2>
+    <h2>Guia de Exercícios</h2>
     
     <div class="panel">
 
-        <h3>Polichinelo</h3>
         
+    
         <div class="video-container">
             <video width="100%" controls playsinline poster="assets/poster_polichinelo.jpeg">
                 <source src="assets/polichinelo.mp4" type="video/mp4">
             </video>
         </div>
-
-        <h3>Aquecimento corrida</h3>
+        <h3>Polichinelo</h3>
         
         <div class="video-container">
             <video width="100%" controls playsinline poster="assets/poster_aquecimento.jpeg">
                 <source src="assets/aquecimento.mp4" type="video/mp4">
             </video>
         </div>
-
-        <h3>Alongamento lombar</h3>
+        <h3>Aquecimento corrida</h3>
         
         <div class="video-container">
             <video width="100%" controls playsinline poster="assets/poster_alongamento.jpeg">
                 <source src="assets/alongamento_lombar.mp4" type="video/mp4">
             </video>
         </div>
+        <h3>Alongamento lombar</h3>
 
     </div>
 </section>
 
 <section id="screen-paciente-medicacao" class="screen">
     <button class="back" data-target="screen-paciente">← Voltar ao Menu</button>
-    <h2>Porque tomar medicação?</h2>
+    <h2>Guias de Saúde</h2>
     
     <div class="panel">
-        <p style="text-align: center; color: var(--muted);">Vídeos com Dra. Ana Beatriz</p>
+        <p style="text-align: center; color: var(--muted);">Para cuidarmos melhor de você, Dra. Ana Beatriz preparou videos informativos, explicando o que são e por que é fundamental tratar essas condições. </p>
 
-        <h3>Diabetes</h3>
         <div class="video-container">
-            <video width="100%" controls playsinline poster="assets/poster_bia_diabetes.jpeg">
-                <source src="assets/bia_diabetes.mp4" type="video/mp4">
-            </video>
+    <video width="100%" controls playsinline poster="assets/poster_bia_diabetes.jpeg">
+        <source src="assets/bia_diabetes.mp4" type="video/mp4">
+    </video>
         </div>
+        <h3>
+            <a href="https://www.einstein.br/n/glossario-de-saude/diabetes" target="_blank">
+                Saiba mais sobre Diabetes
+            </a>
+        </h3>
 
-        <h3>Hipertensão</h3>
+        
         <div class="video-container">
             <video width="100%" controls playsinline poster="assets/poster_bia_hipertensao.jpeg">
                 <source src="assets/bia_hipertensao.mp4" type="video/mp4">
             </video>
         </div>
+        <h3>
+            <a href="https://vidasaudavel.einstein.br/hipertensao-arterial-conheca-a-importancia-da-prevencao-e-tratamento-para-a-condicao/" target="_blank">
+                Saiba mais sobre Hipertensão
+            </a>
+        </h3>
 
-        <h3>Colesterol</h3>
         <div class="video-container">
             <video width="100%" controls playsinline poster="assets/poster_bia_colesterol.jpeg">
                 <source src="assets/bia_colesterol.mp4" type="video/mp4">
             </video>
         </div>
+        <h3>
+            <a href="https://www.einstein.br/n/glossario-de-saude/fator-de-risco-colesterol" target="_blank">
+                Saiba mais sobre Colesterol
+            </a>
+        </h3>
 
-        <h3>Ansiedade</h3>
+        
         <div class="video-container">
             <video width="100%" controls playsinline poster="assets/poster_bia_ansiedade.jpeg">
                 <source src="assets/bia_ansiedade.mp4" type="video/mp4">
             </video>
         </div>
+        <h3>
+            <a href="https://www.einstein.br/n/glossario-de-saude/ansiedade" target="_blank">
+                Saiba mais sobre Ansiedade
+            </a>
+        </h3>
 
-        <h3>Depressão</h3>
+        
         <div class="video-container">
             <video width="100%" controls playsinline poster="assets/poster_bia_depressao.jpeg">
                 <source src="assets/bia_depressão.mp4" type="video/mp4">
             </video>
         </div>
+        <h3>
+            <a href="https://www.einstein.br/n/glossario-de-saude/depressao" target="_blank">
+                Saiba mais sobre Depressão
+            </a>
+        </h3>
 
     </div>
 </section>
 
 <section id="screen-paciente-campanha" class="screen">
     <button class="back" data-target="screen-paciente">← Voltar ao Menu</button>
-    <h2>Campanha do Mês</h2>
+    <h2>Calendário da Saúde</h2>
     
     <div class="panel">
 
@@ -378,12 +400,15 @@
                 <span class="paciente-toggle">▶&#xFE0E;</span>
             </div>
             <div class="paciente-content">
-                <p>
-                    O Novembro Azul é dedicado à conscientização sobre o câncer de próstata e a saúde masculina em geral.
-                </p>
-                <p>
-                    Homens a partir de <strong>45 anos</strong> (com histórico familiar) ou <strong>50 anos</strong> (sem histórico) devem procurar a UBS para realizar os exames preventivos. Quebre o preconceito, sua saúde vale mais.
-                </p>
+                <p>O Novembro Azul é dedicado à conscientização sobre o câncer de próstata e a saúde masculina em geral. Homens a partir de 45 anos (com histórico familiar) ou 50 anos (sem histórico) devem procurar a UBS para realizar os exames preventivos.</p>
+
+    <p><strong>Por que fazer o exame?</strong><br>
+    O câncer de próstata é o segundo tipo mais comum entre os homens, mas quando descoberto no início, as chances de cura ultrapassam os 90%.</p>
+
+    <p><strong>Qual a necessidade?</strong><br>
+    A doença é silenciosa. Na fase inicial, ela não apresenta sintomas. Esperar por sinais (como dificuldade para urinar ou dor) pode significificar que o câncer já está em estágio avançado. Os exames preventivos (de sangue - PSA - e o de toque) são a única forma de garantir um diagnóstico precoce.</p>
+
+    <p>O exame é rápido e pode salvar sua vida. Cuidar da saúde também é papel de homem. Quebre o preconceito, sua saúde vale mais.</p>
             </div>
         </div>
 
@@ -395,16 +420,17 @@
                 <span class="paciente-toggle">▶&#xFE0E;</span>
             </div>
             <div class="paciente-content">
-                <p>
-                    <strong>Data:</strong> Próximo Sábado, 26 de Outubro.
-                </p>
-                <p>
-                    Todas as Unidades Básicas de Saúde (UBS) do seu bairro estarão abertas das <strong>8h às 17h</strong> para a campanha de vacinação contra a Influenza (Gripe).
-                </p>
-                <p>
-                    Traga seu cartão de vacina e proteja sua família! A vacina é segura e essencial para grupos de risco.
-                </p>
-            </div>
+                <p><strong>Data:</strong> Próximo Sábado, 26 de Outubro.<br>
+    Todas as Unidades Básicas de Saúde (UBS) do seu bairro estarão abertas das <strong>8h às 17h</strong> para a campanha de vacinação contra a Influenza (Gripe).</p>
+
+    <p><strong>Por que se vacinar?</strong><br>
+    A gripe não é um simples resfriado. Ela pode causar complicações graves, como pneumonias, e levar à hospitalização, especialmente em pessoas mais vulneráveis. A vacina é a forma mais segura e eficaz de prevenção.</p>
+
+    <p><strong>Quem deve se vacinar?</strong><br>
+    A campanha foca nos grupos prioritários definidos pelo Ministério da Saúde, incluindo crianças, gestantes, puérperas (mulheres pós-parto), idosos, profissionais da saúde e pessoas com doenças crônicas. Verifique se você faz parte!</p>
+
+    <p>Traga seu cartão de vacina e proteja sua família! A vacina é segura, gratuita e essencial para os grupos de risco. Não perca essa oportunidade!</p>
+</div>
         </div>
 
         <div class="paciente-card">
@@ -415,13 +441,18 @@
                 <span class="paciente-toggle">▶&#xFE0E;</span>
             </div>
             <div class="paciente-content">
-                <p>
-                    A campanha Janeiro Branco chama atenção para a importância de cuidar da saúde mental e emocional.
-                </p>
-                <p>
-                    Conversar sobre sentimentos é fundamental. Oferecemos grupos de apoio na sua UBS toda quarta-feira. Procure seu agente de saúde para mais informações. Você não está sozinho!
-                </p>
-            </div>
+                <p>A campanha Janeiro Branco chama atenção para a importância de cuidar da saúde mental e emocional.</p>
+
+    <p><strong>Por que cuidar da mente?</strong><br>
+    Assim como cuidamos da saúde do corpo, nossa mente também precisa de atenção. Saúde mental é essencial para o bem-estar geral, influenciando como pensamos, sentimos e agimos no dia a dia.</p>
+
+    <p><strong>Quebre o tabu!</strong><br>
+    Muitas vezes, o preconceito e a falta de informação impedem as pessoas de buscarem ajuda. Pedir apoio não é sinal de fraqueza, mas sim um ato de coragem e autocuidado.</p>
+
+    <p>Conversar sobre sentimentos é fundamental. Oferecemos grupos de apoio na sua UBS toda quarta-feira. Procure seu agente de saúde para mais informações sobre este serviço gratuito e confidencial.</p>
+    
+    <p>Cuide de você. Você não está sozinho!</p>
+</div>
         </div>
 
     </div>
